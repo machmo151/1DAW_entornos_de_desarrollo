@@ -22,7 +22,13 @@ function crearSaludo(nombre, hora) {
  
 let nombre = "Ana";
 let hora = 15;
-let mensaje = crearSaludo(hora, nombre);
+
+// ANOTACIÓN DE ERROR:
+// - Los argumentos al llamar a la función estaban invertidos: 
+//   se pasaba 'hora' primero y 'nombre' después, cuando la función 
+//   espera (nombre, hora). Se corrige pasando (nombre, hora).
+
+let mensaje = crearSaludo(nombre, hora);
 console.log(mensaje);
 </script>
 </body>
