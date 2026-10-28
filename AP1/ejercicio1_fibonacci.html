@@ -27,8 +27,14 @@
 function fibonacci(n) {
   let serie = [0, 1];
 
-  for (let i = 2; i <= n; i++) {
-    serie.push(serie[i - 1] + serie[i - 3]);
+  // ANOTACIÓN DE ERRORES:
+  // - Línea 36 (anteriormente i <= n): 
+  // Error de lógica. Generaba 11 términos en vez de 10. Corregido a i < n.
+  // - Línea 37 (anteriormente serie[i - 3]): Error de lógica. Usaba un índice incorrecto. 
+  // Corregido a serie[i - 2].
+
+  for (let i = 2; i < n; i++) {
+    serie.push(serie[i - 1] + serie[i - 2]);
   }
 
   return serie;
