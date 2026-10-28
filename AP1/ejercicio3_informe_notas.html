@@ -29,11 +29,19 @@ function crearInforme(nombre, notas) {
     suma = suma + notas[i];
   }
 
-  const media = suma / notas.lenght;
+  // ANOTACIÓN DE ERROR 1 y 2:
+  // - Linea 36 - notas.lenght tenía un error tipográfico (era length).
+  // - media estaba declarada como const y no se puede reasignar. Se cambia a let.
+
+  let media = suma / notas.length;
 
   let resultado = "SUSPENSO";
   if (media >= 5) {
-    resultdo = "APROBADO";
+
+    // ANOTACIÓN DE ERROR 3:
+    // -Linea 44- resultdo tenía un error tipográfico (faltaba la 'a' en resultado).
+
+    resultado = "APROBADO";
   }
 
   media = media.toFixed(2);
@@ -44,8 +52,12 @@ function crearInforme(nombre, notas) {
 let notasAna = [8, 7, 6, 9];
 let notasLuis = [3, 5, 4, 5];
 
-console.log(crearInforme(notasAna, "Ana"));
-console.log(crearInforme(notasLuis, "Luis"));
+// ANOTACIÓN DE ERROR 4:
+// - Lienas 59 y 60: Los argumentos al llamar a la 
+// función estaban invertidos (se pasaba el array antes que el nombre).
+
+console.log(crearInforme("Ana", notasAna));
+console.log(crearInforme("Luis", notasLuis));
 </script>
 </body>
 </html>
