@@ -26,15 +26,25 @@
 // ============================================================
 
 function sumar(array) {
-  let total = "";
-  for (let i = 1; i <= array.length; i++) {
+
+  // ANOTACIÓN DE ERROR:
+  //  - Linea 35 (anteriormente total inicializado como "" en vez de 0): Error de lógica.
+  // - Linea 36 (anteriormente Bucle con i = 1 y i <= array.length 
+  // (Error de lógica: omitía el primer elemento y excedía el límite).
+
+  let total = 0;
+  for (let i = 0; i < array.length; i++) {
     total += array[i];
   }
   return total;
 }
 
 function maximo(array) {
-  let max = 0;
+
+  // ANOTACIÓN DE ERROR:
+  // -Linea 47 - Max inicializado a 0 en vez de array[0], fallaba con números negativos (Error de lógica).
+
+  let max = array[0];
   for (let i = 0; i < array.length; i++) {
     if (array[i] > max) {
       max = array[i];
@@ -44,7 +54,12 @@ function maximo(array) {
 }
 
 function media(array) {
-  return sumar(array) / array.length();
+
+  // ANOTACIÓN DE ERROR:
+  // -Linea 62 - array.length() con paréntesis. 
+  // length es una propiedad, no una función, provocaba TypeError (Error de ejecución)
+
+  return sumar(array) / array.length;
 }
 
 let numeros = [4, -2, 9, 1, 3];
